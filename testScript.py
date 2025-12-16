@@ -24,13 +24,28 @@ x4multiplier = driver.find_element(By.ID, "x4")
 x5multiplier = driver.find_element(By.ID, "x5")
 x6multiplier = driver.find_element(By.ID, "x6")
 
-clickCookieFor(100)
+clickCookieFor(10)
 x3multiplier.click()
+time.sleep(2)
+driver.switch_to.alert.dismiss()
 clickCookieFor(100)
 x5multiplier.click()
+time.sleep(2)
+driver.switch_to.alert.dismiss()
 clickCookieFor(100)
-time.sleep(10)
-driver.quit()
+x2multiplier.click()
+clickCookieFor(300)
+
+#check if final value matches and close test
+cookieJar = driver.execute_script("return getCookieJar();")
+if cookieJar == 610:
+    print("------------- Text complete -------------")
+    time.sleep(2)
+    driver.quit()
+
+else:
+    print("------------- The test failed -----------")
+    driver.quit()
 
 
 
