@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>
+    Clicker game
+</title>
+<link rel="stylesheet" href="mycss.css">
+<script src="myscript.js"></script>
+</head>
+<body onload="onLoadCall();">
+<div class="resetbutton" onclick="resetCount();">Reset</div>
+<div class="navbar">!COOKIE CLICKER!</div>
+<div class="container">
+    <div><img src = "cookie.jpg" class="bigCookie" onclick="countup();" id="cookie"></div>
+    <div id="count" class="counter"></div>
+    <div id="multiplier" class="counter"></div>
+    <div class="buttonBar" id="buttonBar">
+        <div class="bufButton" id="x2" onclick="setMultiplier(2);">x2</div>
+        <div class="bufButton" id="x3" onclick="setMultiplier(3);">x3</div>
+        <div class="bufButton" id="x4" onclick="setMultiplier(4);">x4</div>
+        <div class="bufButton" id="x5" onclick="setMultiplier(5);">x5</div>
+        <div class="bufButton" id="x6" onclick="setMultiplier(6);">x6</div>
+    </div>
+</div>
+</body>
