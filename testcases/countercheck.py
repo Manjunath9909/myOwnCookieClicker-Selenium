@@ -5,13 +5,16 @@ from selenium.webdriver.common.keys import Keys
 
 import time
 
-def clickCookieFor(clicks):
-    for i in range(0, clicks):
-        bigCookie.click()
-
 def run(positionX, positionY, sizeWidth, sizeHeight, finalExpectedCookieJar):
-
+    service = Service(executable_path="chromedriver.exe")
+    driver = webdriver.Chrome(service=service)
     driver.get("file:///E:/projects/selenium2/index.html")
+    bigCookie = driver.find_element(By.ID, "cookie")
+    x2multiplier = driver.find_element(By.ID, "x2")
+    x3multiplier = driver.find_element(By.ID, "x3")
+    x4multiplier = driver.find_element(By.ID, "x4")
+    x5multiplier = driver.find_element(By.ID, "x5")
+    x6multiplier = driver.find_element(By.ID, "x6")
     driver.set_window_size(sizeWidth, sizeHeight)
     driver.set_window_position(positionX, positionY)
     time.sleep(2)
@@ -37,17 +40,13 @@ def run(positionX, positionY, sizeWidth, sizeHeight, finalExpectedCookieJar):
     else:
         print("------------- The test failed -----------")
         driver.quit()
+        
+bigCookie = None
+def clickCookieFor(clicks):
+    for i in range(0, clicks):
+        bigCookie.click()
 
-
-service = Service(executable_path="chromedriver.exe")
-driver = webdriver.Chrome(service=service)
-bigCookie = driver.find_element(By.ID, "cookie")
-x2multiplier = driver.find_element(By.ID, "x2")
-x3multiplier = driver.find_element(By.ID, "x3")
-x4multiplier = driver.find_element(By.ID, "x4")
-x5multiplier = driver.find_element(By.ID, "x5")
-x6multiplier = driver.find_element(By.ID, "x6")
-
-
+def run1():
+    print("counter checker reporting")
 
 
