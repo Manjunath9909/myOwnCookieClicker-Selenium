@@ -1,12 +1,13 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
+import cookiePageElements
 
 import time
 def run(winPosSize,  finalExpectedCookieJar):
 
     sizeWidth = winPosSize[0]
-    sizeHeight = winPosSize[1]
+    sizeHeight = winPosSize[1]  
     positionX = winPosSize[2]
     positionY = winPosSize[3]
 
@@ -15,12 +16,14 @@ def run(winPosSize,  finalExpectedCookieJar):
     driver.get("file:///E:/projects/selenium2/index.html")
 
     #element declaration
-    bigCookie = driver.find_element(By.ID, "cookie")
-    x2multiplier = driver.find_element(By.ID, "x2")
-    x3multiplier = driver.find_element(By.ID, "x3")
-    x4multiplier = driver.find_element(By.ID, "x4")
-    x5multiplier = driver.find_element(By.ID, "x5")
-    x6multiplier = driver.find_element(By.ID, "x6")
+    #element declaration
+    bigCookie = driver.find_element(By.ID, cookiePageElements.getElement("cookieButton")['id'])
+    x2multiplier = driver.find_element(By.ID, cookiePageElements.getElement("x2buff")['id'])
+    x3multiplier = driver.find_element(By.ID, cookiePageElements.getElement("x3buff")['id'])
+    x4multiplier = driver.find_element(By.ID, cookiePageElements.getElement("x4buff")['id'])
+    x5multiplier = driver.find_element(By.ID, cookiePageElements.getElement("x5buff")['id'])
+    x6multiplier = driver.find_element(By.ID, cookiePageElements.getElement("x6buff")['id'])
+    reset = driver.find_element(By.ID, cookiePageElements.getElement("reset")['id'])
 
     #set window size and position
     driver.set_window_size(sizeWidth, sizeHeight)
