@@ -38,12 +38,19 @@ def startTest():
 #the function targetted by all threads
 def threadFunc(arg, index):
     methodDict = {
-        "-b": buffcheck,
-        "-cc": countercheck,
-        "-r" : reset
+        "-b": buffcheck,  
+        "-cc": countercheck,  
+        "-r" : reset  
+    }
+
+    #change the values here for now. this is meant to come from command line
+    finalValueDict = {
+        "-b": 160,
+        "-cc": 210,
+        "-r" : 0,
     }
     thisWindowPosition = getPositionData(index)
-    methodDict.get(arg, lambda: "unknown").run(thisWindowPosition, 210)
+    methodDict.get(arg, lambda: "unknown").run(thisWindowPosition, finalValueDict.get(arg))
 
 def buildThreads(arg, index):
     threads[index] = threading.Thread(target=threadFunc, args=(arg,index,))

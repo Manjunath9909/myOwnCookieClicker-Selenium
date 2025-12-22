@@ -15,7 +15,8 @@ def run(winPosSize,  finalExpectedCookieJar):
     driver = webdriver.Chrome(service=service)
     driver.get("file:///E:/projects/selenium2/index.html")
 
-    #element declaration
+    time.sleep(2)
+
     #element declaration
     bigCookie = driver.find_element(By.ID, cookiePageElements.getElement("cookieButton")['id'])
     x2multiplier = driver.find_element(By.ID, cookiePageElements.getElement("x2buff")['id'])
